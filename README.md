@@ -9,4 +9,6 @@ Client -> C
 
 * BullsCows>game?>message & BullsCows>game!>message>
  -> [ Messages to the server are being sent with an " ? " ]
+ 
+ 
  -> [ Replies from the server are with an " ! " ]
