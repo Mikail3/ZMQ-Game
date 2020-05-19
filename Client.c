@@ -11,34 +11,41 @@ int main( int argc, char * argv[] )
     void *publisher = zmq_socket(context, ZMQ_PUSH);
     void *subscriber = zmq_socket (context, ZMQ_SUB);
 
-
+    ///Here we connect
     int rd = zmq_connect(publisher, "tcp://benternet.pxl-ea-ict.be:24041");
     int rc = zmq_connect( subscriber, "tcp://benternet.pxl-ea-ict.be:24042" );
+
     sleep (3);
 
-
+    ///Here we filter tru
     const char *joinfilter = (argc > 1)? argv [1]: "BullsCows>join!>";
     const char *gamefilter = (argc > 1)? argv [1]: "BullsCows>game!>";
+
+    ///Here we message tru
 
     const char *jointopic = (argc > 1)? argv [1]: "BullsCows>join?>";
     const char *gametopic = (argc > 1)? argv [1]: "BullsCows>game?>";
 
+    /// in case if u want to char more
+    char textplay [20];
 
 
-    for(int i=0; i < 2; i++)
+
     {
         char buf [256];
         buf[0] ='\0';
 
         zmq_msg_t message;
         rc = zmq_msg_init (&message);
-
-                rc = zmq_setsockopt (subscriber, ZMQ_SUBSCRIBE, joinfilter, strlen (joinfilter));
-                //send and receive
-                rd = zmq_send(publisher, jointopic, strlen(jointopic), 0); printf("message send\n");
+                    const char *guess  = "9998";
+                    printf("textueh");
+                    strcpy(textplay, gametopic); ///Bericht samenstellen
+                    strcat(textplay, guess); strcat(textplay, ">");
+                    rc = zmq_setsockopt (subscriber, ZMQ_SUBSCRIBE, joinfilter, strlen (joinfilter));
+                    //send and receive
+                    rd = zmq_send(publisher, textplay, strlen(textplay), 0); printf("message send\n");
 
         printf("Waiting for reply\n");
-
         rc = zmq_recv (subscriber, buf, 256, 0); assert(rc != -1);
 
         int size = zmq_msg_size (&message);
@@ -50,6 +57,7 @@ int main( int argc, char * argv[] )
         sleep(1);
     }
 
+    ////zmq_msg_close(&message); ///Memory leak prevention
     zmq_close(publisher);
     zmq_close( subscriber );
     zmq_ctx_shutdown( context ); //optional for cleaning lady order (get ready you l*zy f*ck)
