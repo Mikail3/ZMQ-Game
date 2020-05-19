@@ -5,22 +5,17 @@ import string
 
 
 print("""
-
                       }   {         ___               
                       (o o)        (o o)              
                /-------\\ /          \\ /-------\\    
               / | BULL |O            O| COW  | \\     
              *  |-,--- |              |------|  *     
                 ^      ^              ^      ^        
-
-
 Welcome to Bulls&Cows!
 The game where you have to guess a 4 digit number!
 for every right digit you get a Cow
 for every right digit at wrongs place you get a Bull
 Enjoy!
-
-
 """)
 
 if __name__ == "__main__":
@@ -60,4 +55,3 @@ if __name__ == "__main__":
                 guesses = reset()[1]
         else:
             print(str(cows) + " Cows, " + str(bulls) + " Bulls")
-
