@@ -8,7 +8,7 @@ Client -> C
 * BullsCows>join?>message> & BullsCows>join!>message>
 
 * BullsCows>game?>message & BullsCows>game!>message>
+
  -> [ Messages to the server are being sent with an " ? " ]
- 
  
  -> [ Replies from the server are with an " ! " ]
