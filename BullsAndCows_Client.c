@@ -37,7 +37,7 @@ int main( int argc, char * argv[] )
 
         zmq_msg_t message;
         rc = zmq_msg_init (&message);
-                    const char *guess  = "9998";
+                    const char *guess  = "9998"; ///Hard coded value pushing
                     printf("textueh");
                     strcpy(textplay, gametopic); ///Bericht samenstellen
                     strcat(textplay, guess); strcat(textplay, ">");
