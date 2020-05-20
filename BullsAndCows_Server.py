@@ -40,12 +40,12 @@ Enjoy!
 """)
 
 while(1):
-    x = str(random.randint(9998, 9999))
+    x = str(random.randint(9997, 9999))
     y = 0
     Cont = "Y"
     guesses = 0
     def reset():
-        x = str(random.randint(9998,9999))
+        x = str(random.randint(9997,9999))
         guesses = 0
         return x, guesses
 
