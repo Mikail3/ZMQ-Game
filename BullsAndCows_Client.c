@@ -34,27 +34,34 @@ int main( int argc, char * argv[] )
     {
         char buf [256];
         buf[0] ='\0';
+        while(50) {
+            printf ("Make a guess: ");
+            char guess [100];
+            scanf("%s",guess);
+
+
 
         zmq_msg_t message;
         rc = zmq_msg_init (&message);
-                    const char *guess  = "9998"; ///Hard coded value pushing
+                    ///const char *guess  = "9998";
                     printf("textueh");
                     strcpy(textplay, gametopic); ///Bericht samenstellen
                     strcat(textplay, guess); strcat(textplay, ">");
                     rc = zmq_setsockopt (subscriber, ZMQ_SUBSCRIBE, joinfilter, strlen (joinfilter));
                     //send and receive
                     rd = zmq_send(publisher, textplay, strlen(textplay), 0); printf("message send\n");
-
+        }
         printf("Waiting for reply\n");
         rc = zmq_recv (subscriber, buf, 256, 0); assert(rc != -1);
 
-        int size = zmq_msg_size (&message);
-        char *string = malloc (size + 1);
-        memcpy (string, zmq_msg_data (&message), size);
-        zmq_msg_close (&message);
-        string [size] = 0;
-        printf("Message received: %s\n\n",buf);
-        sleep(1);
+//        int size = zmq_msg_size (&message);
+//        char *string = malloc (size + 1);
+//        memcpy (string, zmq_msg_data (&message), size);
+//        zmq_msg_close (&message);
+//        string [size] = 0;
+//        printf("Message received: %s\n\n",buf);
+//        sleep(1);
+
     }
 
     ////zmq_msg_close(&message); ///Memory leak prevention
