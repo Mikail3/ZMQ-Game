@@ -1,7 +1,7 @@
 # ZMQ Game Bulls&Cows
 
 
-#Gameplay rules
+# Gameplay rules
 
 
 
