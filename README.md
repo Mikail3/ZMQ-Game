@@ -18,13 +18,17 @@ If you guess the correct number but the number is on the wrong place -> you get 
 
 2 Commands that are being used;
 
-1) *this is what you expect 
-* BullsCows>join?>message>  
+1) **this is what you expect**
+
+* BullsCows>join?>message> 
 * BullsCows>join!>message>
 
-2 ) *this is what it replies
+2 ) **this is what it replies**
+
 * BullsCows>game?>message 
 * BullsCows>game!>message>
+
+
 
  -> [ Messages to the server are being sent with an " ? " ]
  
