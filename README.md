@@ -23,7 +23,7 @@ If you guess the correct number but the number is on the wrong place -> you get 
 * BullsCows>join?>message> 
 * BullsCows>join!>message>
 
-2 ) **this is what it replies**
+2) **this is what it replies**
 
 * BullsCows>game?>message 
 * BullsCows>game!>message>
