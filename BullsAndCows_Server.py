@@ -19,10 +19,13 @@ subscriber = context.socket(zmq.SUB)
 
 
 subscriber.setsockopt(zmq.SUBSCRIBE , joinfilter )
-subscriber.setsockopt(zmq.SUBSCRIBE , gamefilter ) 
+subscriber.setsockopt(zmq.SUBSCRIBE , gamefilter )
+
+
 
 publisher.connect("tcp://benternet.pxl-ea-ict.be:24041")
 subscriber.connect("tcp://benternet.pxl-ea-ict.be:24042")
+
 
 
 print("""
@@ -39,13 +42,20 @@ for every right digit at wrongs place you get a Bull
 Enjoy!
 """)
 
+message = subscriber.recv()
+time.sleep(2)
+message = jointopic+ "Game is ready"
+publisher.send_string(message)
+time.sleep(1)
+subscriber.setsockopt(zmq.UNSUBSCRIBE , joinfilter )
+
 while(1):
-    x = str(random.randint(9997, 9999))
+    x = str(random.randint(9998, 9999))
     y = 0
     Cont = "Y"
     guesses = 0
     def reset():
-        x = str(random.randint(9997,9999))
+        x = str(random.randint(9998,9999))
         guesses = 0
         return x, guesses
 
@@ -63,7 +73,7 @@ while(1):
     while Cont == "Y":
         #y = input('Make a guess: ')
         #input change to a recieve
-        message = gametopic+ "Make a guess "
+        message = gametopic+ "Make a guess first "
         message = publisher.send_string(message)
         message = subscriber.recv()
         y = message.decode('utf8').split('>')[2]
@@ -94,8 +104,7 @@ while(1):
                 guesses = reset()[1]
         else:
             #print(str(cows) + " Cows, " + str(bulls) + " Bulls")
-            message = gametopic+ str(cows) + " Cows, " + str(bulls) + " Bulls" + "guesses."
+            message = gametopic+ str(cows) + " Cows, " + str(bulls) + " Bulls" + ", make a new guess."
             message = publisher.send_string(message)
             
             
-
