@@ -61,9 +61,9 @@ int main( int argc, char * argv[] )
         rc = zmq_msg_init (&message);
                     ///const char *guess  = "9998";
 
-                    rd = zmq_send(publisher, textplay, strlen(textplay), 0); printf("guess\n");
+//                    rd = zmq_send(publisher, textplay, strlen(textplay), 0); printf("guess\n");
                     memset(buf,0,256);
-                    printf("textueh");
+                    ///printf("textueh");
                     memset(buf,0,256);
                     strcpy(textplay, gametopic); ///Bericht samenstellen
                     strcat(textplay, guess); strcat(textplay, ">");
