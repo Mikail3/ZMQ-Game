@@ -1,3 +1,5 @@
+#This is just the Bulls&Cows game
+
 import random
 import zmq
 import time
