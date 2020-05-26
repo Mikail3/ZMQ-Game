@@ -50,12 +50,12 @@ time.sleep(1)
 subscriber.setsockopt(zmq.UNSUBSCRIBE , joinfilter )
 
 while(1):
-    x = str(random.randint(9998, 9999))
+    x = str(random.randint(9995, 9999))
     y = 0
     Cont = "Y"
     guesses = 0
     def reset():
-        x = str(random.randint(9998,9999))
+        x = str(random.randint(9995,9999))
         guesses = 0
         return x, guesses
 
@@ -70,11 +70,15 @@ while(1):
                 bulls += 1
         return cows, bulls
 
+
+    message = gametopic+ "Make a guess first "
+    message = publisher.send_string(message)
+
+
     while Cont == "Y":
         #y = input('Make a guess: ')
         #input change to a recieve
-        message = gametopic+ "Make a guess first "
-        message = publisher.send_string(message)
+        
         message = subscriber.recv()
         y = message.decode('utf8').split('>')[2]
         print(y)
@@ -88,13 +92,13 @@ while(1):
             
             
             #print("You have guessed correctly! It took u " + str(guesses) + " guesses.")
-            message = gametopic+ "You have guessed good! " + str(guesses) + "guesses."
+            message = gametopic+ "You have guessed good! " + str(guesses) + "guesses." + "Play Again? Y|N " 
             message = publisher.send_string(message)
             
             
             #Cont = input("Play agian? Y|N")
-            message = gametopic + "Play again? Y|N "
-            message = publisher.send_string(message)
+            #message = gametopic + "Play again? Y|N "
+            #message = publisher.send_string(message)
             message = subscriber.recv()
             Cont = message.decode('utf8').split('>')[2]
             
@@ -102,9 +106,13 @@ while(1):
             if Cont == "Y":
                 x = reset()[0]
                 guesses = reset()[1]
+                message = gametopic+ "Make a guess first "
+                message = publisher.send_string(message)
+                
         else:
             #print(str(cows) + " Cows, " + str(bulls) + " Bulls")
             message = gametopic+ str(cows) + " Cows, " + str(bulls) + " Bulls" + ", make a new guess."
             message = publisher.send_string(message)
             
             
+
