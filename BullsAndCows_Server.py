@@ -1,3 +1,4 @@
+
 #Pyhton server made for Bulls&Cows
 #imports 
 import random
@@ -71,7 +72,7 @@ while(1):
         return cows, bulls
 
 
-    message = gametopic+ "Make a guess first "
+    message = gametopic+ "Make a guess first(0-9999) "
     message = publisher.send_string(message)
 
 
@@ -103,16 +104,13 @@ while(1):
             Cont = message.decode('utf8').split('>')[2]
             
             
-            if Cont == "Y":
-                x = reset()[0]
-                guesses = reset()[1]
-                message = gametopic+ "Make a guess first "
-                message = publisher.send_string(message)
-                
+            #if Cont == "Y":
+            x = reset()[0]
+            guesses = reset()[1]
+            message = gametopic+ "Make a guess first "
+            message = publisher.send_string(message)
+            
         else:
             #print(str(cows) + " Cows, " + str(bulls) + " Bulls")
             message = gametopic+ str(cows) + " Cows, " + str(bulls) + " Bulls" + ", make a new guess."
             message = publisher.send_string(message)
-            
-            
-
