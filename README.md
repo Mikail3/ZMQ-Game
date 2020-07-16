@@ -1,7 +1,8 @@
 # ZMQ Game Bulls&Cows
 This project utilizes ZMQ to share data between Python and C.
 
-Game/Server is built using -> Python running on a Rasperry PI
+note ; Now using C++ and C to communicate 
+Game/Server is built using -> (C++) (Python running on a Rasperry PI)
 Client is built using  -> C
 
 # Gameplay rules
