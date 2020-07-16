@@ -7,7 +7,7 @@ Client is built using  -> C
 # Gameplay rules
 
 Bulls&Cows is a guessing game.
-The computer randomly generates a number that contains 4 characters from 1000 - 9000.
+The computer randomly generates a number that contains 4 digits from 1000 - 9000.
 If you guess a correct number -> you get a "Cow"
 If you guess the correct number but the number is on the wrong place -> you get "Bulls"
 
