@@ -15,7 +15,6 @@ If you guess the correct number but the number is on the wrong place -> you get 
 
 ![Chart] (https://github.com/Mikail3/ZMQ-Game/blob/master/Chart.JPG) 
 
-
 2 Commands that are being used;
 
 1) **this is what you expect** :
