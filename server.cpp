@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+
 using namespace std;
 
 void SplitNummer(int number, int array[], int size)
