@@ -15,8 +15,8 @@ int main ( int argc, char * argv [] )
     void *receiver = zmq_socket (context, ZMQ_SUB); ///Benternet pulls , u SUB  ,important voor receive
 
 
-    int rs = zmq_connect (sender, "tcp://benternet.pxl-ea-ict.be:24041");
-    int rr = zmq_connect (receiver, "tcp://benternet.pxl-ea-ict.be:24042"); ///important voor receive
+    int rs = zmq_connect (sender,"tcp://localhost:24041"); ///"tcp://benternet.pxl-ea-ict.be:24041");
+    int rr = zmq_connect (receiver, "tcp://localhost:24042");///"tcp://benternet.pxl-ea-ict.be:24042"); ///important voor receive
     ///int rc = zmq_setsockopt(receiver , ZMQ_SUBSCRIBE , "example>task?>Mikail>" , 21); ///important , op wat je wilt ontvangen, decides what u receive , BENTERNET SENDS
     ///int rc = zmq_setsockopt(receiver , ZMQ_SUBSCRIBE , "example>answer!>Mikail>" , 21);
 
@@ -28,7 +28,7 @@ int main ( int argc, char * argv [] )
 
     sleep(1); ///Bcz send and receive too quick
    /// rs = zmq_send (sender , "example>task?>Mikail>" ,  21 , 0);
-    rs = zmq_send (sender , "example>answer?>Mikail>" ,  21 , 0);
+    rs = zmq_send (sender , "BC?>1111>" ,  9 , 0);
     printf("Send bytes = %d", rs );
     char buf[256];
 
