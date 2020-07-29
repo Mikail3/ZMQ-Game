@@ -67,12 +67,18 @@ int main()
 
         std::string gs= "1111";
         rr = zmq_recv (receiver, buf ,256 , 0 ); ///receiving message option 1
+        /// wenselijk heb ik de volgende string ontvangen BC?>1111>  --> ik heb nodig 1111
         gs = buf;
         buf[rr] = '\0'; ///String stop
         printf("Received: %s" , buf);
-        ///std:: string delimiterGs = "< ";
-        cin >> Guesses[size];
-        ///std:: string token =  s.substr(0, s.find(delimiterGs));
+
+        std:: string delimiterGs = ">";
+        ///cin >> Guesses[size];
+        std:: string Guesses_string =  gs.substr(4, gs.find(delimiterGs , 4) - 4); /// token = hier in komt substring
+        ///gs.find = is just a position
+        /// gs. substring = verwacht als 1ste parameter een positie = 4 , maar als 2de paramater verwacht die lengte
+        /// pos - beginpostie = lengte
+
 
         if (!cin)/// (Guesses[size] < 1000 || Guesses[size] > 9999) check if input is int
         {
