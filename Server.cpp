@@ -72,12 +72,19 @@ int main()
         buf[rr] = '\0'; ///String stop
         printf("Received: %s" , buf);
 
-        std:: string delimiterGs = ">";
-        ///cin >> Guesses[size];
-        std:: string Guesses_string =  gs.substr(4, gs.find(delimiterGs , 4) - 4); /// token = hier in komt substring
-        ///gs.find = is just a position
-        /// gs. substring = verwacht als 1ste parameter een positie = 4 , maar als 2de paramater verwacht die lengte
-        /// pos - beginpostie = lengte
+        std :: string strGuess = "BC?>1111>";
+        std :: size_t posPart1 = strGuess.find ( ">");
+        std :: string Part1= strGuess.substr(0, posPart1);
+        std :: string Part1After = strGuess.substr ( posPart1 + 1);
+
+
+        std :: size_t posPart2 = Part1After.find(">");
+        std :: string Part2= Part1After.substr(0, posPart2);
+        std :: string Part2After = Part1After.substr(posPart2 +1);
+
+
+        std :: cout << '\n' << Part2 << '\n' ;
+
 
 
         if (!cin)/// (Guesses[size] < 1000 || Guesses[size] > 9999) check if input is int
